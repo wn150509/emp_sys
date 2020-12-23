@@ -8,15 +8,15 @@ import com.lx.emp.dao.EmployeeMapper;
 import com.lx.emp.enums.OperationType;
 import com.lx.emp.enums.OperationUnit;
 import com.lx.emp.pojo.Employee;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class EmployeeService {
     
-    @Autowired
+    @Resource
     private EmployeeMapper employeeMapper;
 
     @OperationLogDetail(detail = "修改密码",level = 2,operationUnit = OperationUnit.EMPLOYEE,operationType = OperationType.UPDATE)

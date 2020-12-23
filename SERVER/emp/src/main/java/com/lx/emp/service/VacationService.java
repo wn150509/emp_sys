@@ -8,18 +8,18 @@ import com.lx.emp.enums.OperationType;
 import com.lx.emp.enums.OperationUnit;
 import com.lx.emp.pojo.Employee;
 import com.lx.emp.pojo.Vacation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class VacationService {
     
-    @Autowired
+    @Resource
     private VacationMapper vacationMapper;
 
-    @Autowired
+    @Resource
     private EmployeeService employeeService;
 
     @OperationLogDetail(detail = "增加休假信息",level = 2,operationUnit = OperationUnit.VACATION,operationType = OperationType.INSERT)

@@ -5,16 +5,16 @@ import com.lx.emp.dao.DepartmentMapper;
 import com.lx.emp.enums.OperationType;
 import com.lx.emp.enums.OperationUnit;
 import com.lx.emp.pojo.Department;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class DepartmentService {
 
-    @Autowired
+    @Resource
     private DepartmentMapper departmentMapper;
 
     @OperationLogDetail(detail = "增加部门",level = 3,operationUnit = OperationUnit.DEPARTMENT,operationType = OperationType.INSERT)

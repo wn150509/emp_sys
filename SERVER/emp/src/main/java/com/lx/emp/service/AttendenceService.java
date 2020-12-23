@@ -9,16 +9,16 @@ import com.lx.emp.enums.OperationType;
 import com.lx.emp.enums.OperationUnit;
 import com.lx.emp.pojo.Attendence;
 import com.lx.emp.pojo.Employee;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
 @Service
 public class AttendenceService {
     
-    @Autowired
+    @Resource
     private AttendenceMapper attendenceMapper;
 
     @OperationLogDetail(detail = "增加考勤",level = 3,operationUnit = OperationUnit.ATTEND,operationType = OperationType.INSERT)

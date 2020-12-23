@@ -5,15 +5,16 @@ import com.lx.emp.enums.VacationStatusEnum;
 import com.lx.emp.pojo.Department;
 import com.lx.emp.pojo.Vacation;
 import com.lx.emp.service.VacationService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/vacation")
 public class VacationController {
 
-    @Autowired
+    @Resource
     private VacationService vacationService;
 
     @GetMapping("/list")
