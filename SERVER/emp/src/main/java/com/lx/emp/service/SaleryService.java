@@ -7,16 +7,16 @@ import com.lx.emp.dao.SaleryMapper;
 import com.lx.emp.enums.OperationType;
 import com.lx.emp.enums.OperationUnit;
 import com.lx.emp.pojo.Salery;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
 @Service
 public class SaleryService {
     
-    @Autowired
+    @Resource
     private SaleryMapper saleryMapper;
 
 

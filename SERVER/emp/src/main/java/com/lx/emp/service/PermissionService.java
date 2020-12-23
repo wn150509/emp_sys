@@ -7,17 +7,17 @@ import com.lx.emp.enums.OperationType;
 import com.lx.emp.enums.OperationUnit;
 import com.lx.emp.pojo.Permission;
 import com.lx.emp.pojo.RolePermission;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class PermissionService {
-    @Autowired
+    @Resource
     private PermissionMapper permissionMapper;
 
-    @Autowired
+    @Resource
     private RolePermissionMapper rolePermissionMapper;
 
     @OperationLogDetail(detail = "增加权限",level = 2,operationUnit = OperationUnit.PERMISSION,operationType = OperationType.INSERT)

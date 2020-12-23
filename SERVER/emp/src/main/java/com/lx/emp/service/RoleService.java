@@ -5,14 +5,14 @@ import com.lx.emp.dao.RoleMapper;
 import com.lx.emp.enums.OperationType;
 import com.lx.emp.enums.OperationUnit;
 import com.lx.emp.pojo.Role;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class RoleService {
-    @Autowired
+    @Resource
     private RoleMapper roleMapper;
 
     @OperationLogDetail(detail = "增加权限",level = 2,operationUnit = OperationUnit.ROLE,operationType = OperationType.INSERT)

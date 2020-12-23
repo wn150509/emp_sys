@@ -6,16 +6,16 @@ import com.lx.emp.dao.SaleryMapper;
 import com.lx.emp.dao.SysLoggerMapper;
 import com.lx.emp.pojo.Salery;
 import com.lx.emp.pojo.SysLogger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
 @Service
 public class SysLoggerService {
     
-    @Autowired
+    @Resource
     private SysLoggerMapper sysLoggerMapper;
 
 

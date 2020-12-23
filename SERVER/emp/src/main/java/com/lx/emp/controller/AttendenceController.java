@@ -6,19 +6,19 @@ import com.lx.emp.pojo.Employee;
 import com.lx.emp.service.AttendenceService;
 import com.lx.emp.service.EmployeeService;
 import com.lx.emp.util.DateUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.Date;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/attend")
 public class AttendenceController {
-    @Autowired
+    @Resource
     private AttendenceService attendenceService;
 
-    @Autowired
+    @Resource
     private EmployeeService employeeService;
 
     @GetMapping("/list")

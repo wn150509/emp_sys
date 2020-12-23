@@ -3,9 +3,9 @@ package com.lx.emp.controller;
 import com.lx.emp.pojo.Role;
 import com.lx.emp.service.PermissionService;
 import com.lx.emp.service.RoleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,10 +15,10 @@ import java.util.List;
 @CrossOrigin
 public class RoleController {
 
-    @Autowired
+    @Resource
     private RoleService roleService;
 
-    @Autowired
+    @Resource
     private PermissionService permissionService;
 
     @GetMapping("/list")

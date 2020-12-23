@@ -5,15 +5,16 @@ import com.lx.emp.pojo.Salery;
 import com.lx.emp.pojo.SysLogger;
 import com.lx.emp.service.SaleryService;
 import com.lx.emp.service.SysLoggerService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 @RestController
 @RequestMapping("/log")
 @CrossOrigin
 public class LoggerController {
 
-    @Autowired
+    @Resource
     private SysLoggerService sysLoggerService;
 
     @GetMapping("/list")

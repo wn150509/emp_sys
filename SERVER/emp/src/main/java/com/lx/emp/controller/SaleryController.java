@@ -3,9 +3,9 @@ package com.lx.emp.controller;
 import com.github.pagehelper.PageInfo;
 import com.lx.emp.pojo.Salery;
 import com.lx.emp.service.SaleryService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
 @CrossOrigin
 public class SaleryController {
 
-    @Autowired
+    @Resource
     private SaleryService saleryService;
 
     @GetMapping("/list")

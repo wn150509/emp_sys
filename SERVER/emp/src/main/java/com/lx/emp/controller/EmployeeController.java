@@ -5,9 +5,9 @@ import com.lx.emp.pojo.Employee;
 import com.lx.emp.pojo.Permission;
 import com.lx.emp.service.EmployeeService;
 import com.lx.emp.service.PermissionService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
@@ -15,10 +15,10 @@ import java.util.List;
 @CrossOrigin
 public class EmployeeController {
 
-    @Autowired
+    @Resource
     private EmployeeService employeeService;
 
-    @Autowired
+    @Resource
     private PermissionService permisssionService;
 
 
@@ -55,6 +55,9 @@ public class EmployeeController {
     @PostMapping("/login")
     public Employee login(@RequestBody Employee form){
         Employee employee = employeeService.findByNO(form.getEmpNo());
+        if (employee == null) {
+            return null;
+        }
         List<Permission> permissions = permisssionService.findByRoleId(employee.getEmpType());
         employee.setPermissions(permissions);
         if(employee != null){
