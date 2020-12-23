@@ -60,10 +60,8 @@ public class EmployeeController {
         }
         List<Permission> permissions = permisssionService.findByRoleId(employee.getEmpType());
         employee.setPermissions(permissions);
-        if(employee != null){
-            if(form.getEmpPassword().equals(employee.getEmpPassword())){
-                return employee;
-            }
+        if(form.getEmpPassword().equals(employee.getEmpPassword())){
+            return employee;
         }
         return null;
     }
