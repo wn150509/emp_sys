@@ -58,11 +58,11 @@ public class LogAspect {
         String url =  request.getRequestURL().toString();
         String requestMethod = request.getMethod();
         String host = request.getRemoteAddr();
-        String class_method =  joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
+        String classMethod =  joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
         String params = Arrays.toString(joinPoint.getArgs());
         sysLogger.setAddress(url);
         sysLogger.setCreateDate(new Date());
-        sysLogger.setMethod(class_method);
+        sysLogger.setMethod(classMethod);
         sysLogger.setParams(params);
         sysLogger.setHost(host);
         sysLogger.setRequestMethod(requestMethod);

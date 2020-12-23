@@ -7,7 +7,7 @@ public enum OperationUnit {
     UNKNOWN("unknown"),
     DEPARTMENT("department"),
     EMPLOYEE("employee"),
-    SALERY("salery"),
+    SALARY("salry"),
     VACATION("vacation"),
     ROLE("role"),
     ATTEND("attend"),
