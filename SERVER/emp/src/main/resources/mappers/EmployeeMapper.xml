@@ -26,8 +26,7 @@
     where emp_id = #{empId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_emp
-    where emp_id = #{empId,jdbcType=INTEGER}
+    delete from tb_emp where emp_id = #{empId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.lx.emp.pojo.Employee">
     insert into tb_emp (emp_id, emp_no, emp_name, 

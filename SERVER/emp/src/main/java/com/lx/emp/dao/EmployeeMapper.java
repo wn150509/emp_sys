@@ -26,6 +26,9 @@ public interface EmployeeMapper {
                            @Param("no") String no,
                            @Param("deptId") String deptId);
 
+    @Select("select * from tb_emp")
+    List<Employee> findAllEmp();
+
     @Select("select * from tb_emp where emp_no = #{empNO}")
     Employee selectByEmpNO(String empNO);
 

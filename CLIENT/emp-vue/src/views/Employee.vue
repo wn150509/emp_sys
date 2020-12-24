@@ -162,10 +162,19 @@ export default {
             type: "warning"
         }).then(() => {
             remove(row.empId).then(res => {
-            that.$parent.$alert("删除成功", "提示");
-            that.$set(this.query, "page", 1);
-            that.getData();
+              that.$notify({
+                title: '成功',
+                message: '密码修改成功',
+                type: 'success'
+              });
+              that.$set(this.query, "page", 1);
+              that.getData();
             });
+        }).catch(err => {
+          that.$notify.error({
+            title: '错误',
+            message: '密码修改失败'
+          });
         });
     },
     // 编辑操作
@@ -178,7 +187,7 @@ export default {
       this.$set(this.query, "page", val);
       this.getData();
     }
-    
+
   }
 };
 </script>
