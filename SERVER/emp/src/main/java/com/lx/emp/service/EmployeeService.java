@@ -57,4 +57,10 @@ public class EmployeeService {
         pageInfo.setList(employees);
         return pageInfo;
     }
+
+    @OperationLogDetail(detail = "查询所有员工",level = 1,operationUnit = OperationUnit.EMPLOYEE,operationType = OperationType.SELECT)
+    public List<Employee> findAllEmp(){
+        List<Employee> employees = employeeMapper.findAllEmp();
+        return employees;
+    }
 }

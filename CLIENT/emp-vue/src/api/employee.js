@@ -32,6 +32,13 @@ export function getAll(query) {
     })
 }
 
+export function getAllEmp() {
+  return request({
+    url: "/employee/allEmp",
+    method: "get"
+  })
+}
+
 export function getByNo(no) {
     return request({
         url: "/employee/get/"+ no,
