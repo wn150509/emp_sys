@@ -1,12 +1,5 @@
 <template>
   <div>
-    <div class="crumbs">
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item>
-          <i class="el-icon-lx-cascades"></i> 我的工资
-        </el-breadcrumb-item>
-      </el-breadcrumb>
-    </div>
     <div class="container">
       <!-- <div class="handle-box">
         <el-input v-model="query.name" placeholder="员工姓名" class="handle-input mr10"></el-input>
@@ -96,7 +89,7 @@ export default {
       this.$set(this.query, "page", val);
       this.getData();
     }
-    
+
   }
 };
 </script>
