@@ -46,7 +46,6 @@ export default {
   computed: {
     username() {
       let user = JSON.parse(sessionStorage.getItem('user'));
-      console.log('user====', JSON.parse(sessionStorage.getItem('user')))
       return user!=null ? "你好, "+user.empName : this.name;
     }
   },

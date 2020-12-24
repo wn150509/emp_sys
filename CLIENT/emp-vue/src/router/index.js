@@ -98,7 +98,7 @@ export default new Router({
     },
     {
       path: '/daka',
-      component: () => import('@/components/Daka.vue')
+      component: () => import('@/components/Daka.vue'),
     },
     {
       path: '*',

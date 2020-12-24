@@ -122,7 +122,7 @@ export default {
     })
   },
   mounted(){
-    if(sessionStorage.getItem("user") == undefined){
+    if(sessionStorage.getItem("user") === null){
         this.$router.push("/login");
     }
   },
@@ -164,7 +164,7 @@ export default {
             remove(row.empId).then(res => {
               that.$notify({
                 title: '成功',
-                message: '密码修改成功',
+                message: '删除成功',
                 type: 'success'
               });
               that.$set(this.query, "page", 1);
@@ -173,7 +173,7 @@ export default {
         }).catch(err => {
           that.$notify.error({
             title: '错误',
-            message: '密码修改失败'
+            message: '删除失败'
           });
         });
     },
