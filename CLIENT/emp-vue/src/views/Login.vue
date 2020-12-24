@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div class="login-titleName">
+      <h1>
+        员工信息管理系统
+      </h1>
+    </div>
     <el-form ref="loginForm" :model="form" :rules="rules" label-width="80px" class="login-box">
       <h3 class="login-title">欢迎登录</h3>
       <el-form-item label="账号" prop="empNo">
@@ -135,17 +140,23 @@ export default {
 .login-box {
   border: 1px solid #dcdfe6;
   width: 350px;
-  margin: 180px auto;
+  margin: 90px auto;
   padding: 35px 35px 15px 35px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   box-shadow: 0 0 25px #909399;
+  background-image: url("../assets/img/backGround.jpeg");
 }
 
 .login-title {
   text-align: center;
   margin: 0 auto 40px auto;
+  color: #303133;
+}
+.login-titleName{
+  text-align: center;
+  margin: 100px auto 0 auto;
   color: #303133;
 }
 

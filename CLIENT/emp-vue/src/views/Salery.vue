@@ -30,13 +30,13 @@
         <el-table-column prop="empNo" label="工号" width="70"></el-table-column>
         <el-table-column prop="empName" label="姓名" width="100"></el-table-column>
         <el-table-column prop="workSalery" label="岗位工资"></el-table-column>
-        <el-table-column prop="allowance" label="补贴"></el-table-column>
+        <el-table-column prop="allowance" label="补贴" width="70"></el-table-column>
         <el-table-column prop="vacation" label="休假扣除" width="100"></el-table-column>
         <el-table-column prop="reward" label="奖金"></el-table-column>
         <el-table-column prop="absent" label="离岗扣除"></el-table-column>
         <el-table-column prop="total" label="工资总额"></el-table-column>
         <el-table-column prop="createtime" label="发放时间"></el-table-column>
-        <el-table-column label="操作" width="180" align="center" v-if="checkPermission(['PAY_EDIT','PAY_DELETE'])">
+        <el-table-column label="操作" width="120" align="center" v-if="checkPermission(['PAY_EDIT','PAY_DELETE'])">
           <template slot-scope="scope" >
               <el-button
               v-if="checkPermission(['PAY_EDIT'])"
@@ -155,7 +155,7 @@ export default {
       this.$set(this.query, "page", val);
       this.getData();
     }
-    
+
   }
 };
 </script>

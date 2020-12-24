@@ -32,6 +32,11 @@ public class EmployeeController {
         return employeeService.findAll(page,size,name,no,deptId);
     }
 
+    @GetMapping("/allEmp")
+    public List<Employee> allEmp(){
+        return employeeService.findAllEmp();
+    }
+
     @PostMapping("/save")
     public boolean save(@RequestBody Employee employee){
         return employeeService.save(employee);
@@ -39,6 +44,7 @@ public class EmployeeController {
 
     @DeleteMapping("/remove/{id}")
     public boolean remove(@PathVariable Integer id){
+        System.out.println("id===="+id);
         return employeeService.remove(id);
     }
 

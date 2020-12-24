@@ -1,22 +1,20 @@
 <template>
   <div>
-    <el-dialog :title="isAdd ? '新增' : '编辑'" :visible.sync="dialog">
+    <el-dialog :title="isAdd ? '新增' : '编辑'" :visible.sync="dialog" @close="cancel">
       <el-form ref="form" :model="form" label-width="100px">
-        <el-row>
-          <el-col :span="16">
-            <el-form-item label="员工编号" prop="empNo">
-              <el-input
-                size="small"
-                v-model="form.empNo"
-                placeholder="请输入员工编号"
-                :disabled="isAdd == false"
-              ></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="8">
-            <el-button type="primary" @click="queryEmp">查询</el-button>
-          </el-col>
-        </el-row>
+        <el-form-item label="员工编号">
+          <el-select v-model="form.empNo" filterable placeholder="请选择" @focus="queryEmpNo" @change="queryEmp">
+            <el-option
+              v-for="item in options"
+              :key="item.empNo"
+              :label="item.empNo"
+              :value="item.empNo"
+              :disabled="isAdd == false">
+              <span style="float: left">{{ item.empNo }}</span>
+              <span style="float: right; color: #8492a6; font-size: 13px">{{ item.empName }}</span>
+            </el-option>
+          </el-select>
+        </el-form-item>
         <el-row>
           <el-col :span="11">
             <el-form-item label="员工姓名" prop="empName">
@@ -64,7 +62,7 @@
   </div>
 </template>
 <script>
-import { getByNo } from "@/api/employee";
+import { getByNo, getAllEmp} from "@/api/employee";
 import { add, update } from "@/api/salery";
 export default {
   props: {
@@ -85,11 +83,16 @@ export default {
         absent: "",
         total: ""
       },
-      dialog: false
-    };
+      dialog: false,
+      options: []
+    }
   },
-  mounted() {},
   methods: {
+    queryEmpNo(){
+      getAllEmp().then(res =>{
+        this.options = res
+      })
+    },
     queryEmp() {
       let that = this;
       getByNo(this.form.empNo).then(data => {
