@@ -21,7 +21,7 @@ public class EmployeeService {
 
     @OperationLogDetail(detail = "修改密码",level = 2,operationUnit = OperationUnit.EMPLOYEE,operationType = OperationType.UPDATE)
     public boolean changePassword(String no,String password){
-        return employeeMapper.changePassword(no,password) > 1;
+        return employeeMapper.changePassword(no,password) > 0;
     }
 
     @OperationLogDetail(detail = "增加员工",level = 3,operationUnit = OperationUnit.EMPLOYEE,operationType = OperationType.INSERT)
@@ -56,5 +56,11 @@ public class EmployeeService {
         PageInfo pageInfo = new PageInfo(employees);
         pageInfo.setList(employees);
         return pageInfo;
+    }
+
+    @OperationLogDetail(detail = "查询所有员工",level = 1,operationUnit = OperationUnit.EMPLOYEE,operationType = OperationType.SELECT)
+    public List<Employee> findAllEmp(){
+        List<Employee> employees = employeeMapper.findAllEmp();
+        return employees;
     }
 }

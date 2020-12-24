@@ -29,7 +29,7 @@ export default {
     name: 'baseform',
     data() {
         return {
-           
+
             form: {
                 adminName: '',
                 adminPassword:''
@@ -38,15 +38,22 @@ export default {
     },
     methods: {
         onSubmit() {
-            this.form.adminName = JSON.parse(sessionStorage.getItem("user")).adminName;
-            changePass(this.form).then(res=>{
-                if(res){
-                    this.$alert("密码修改成功");
-                }else{
-                    this.$alert("密码修改失败");
-                }
-                
-            })
+          changePass({empNo: JSON.parse(sessionStorage.getItem("user")).empNo,
+                      empPassword: this.form.adminPassword}).then(res=>{
+              if(res){
+                this.$notify({
+                  title: '成功',
+                  message: '密码修改成功',
+                  type: 'success'
+                });
+              }else{
+                this.$notify.error({
+                  title: '错误',
+                  message: '密码修改失败'
+                });
+              }
+
+          })
         },
         reset(){
             this.form  = {

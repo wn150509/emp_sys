@@ -102,10 +102,11 @@ export default {
                 let permissions = data.permissions.map(e=>{
                   return e.permissionName
                 });
-                console.log(permissions);
+                console.log('=====', permissions);
                 data.permissions = permissions;
-                sessionStorage.removeItem("user");
-                sessionStorage.setItem("user", JSON.stringify(data));
+                sessionStorage.removeItem('user');
+                sessionStorage.setItem('user', JSON.stringify(data));
+                console.log('user====', sessionStorage.getItem('user'))
                 // 使用 vue-router 路由到指定页面，该方式称之为编程式导航
                 this.$router.push("/employee");
               } else {
