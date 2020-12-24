@@ -46,7 +46,7 @@ export default {
   computed: {
     username() {
       let username = JSON.parse(sessionStorage.getItem("user")).empName;
-      return username ? username : this.name;
+      return username ? "你好, "+username : this.name;
     }
   },
   methods: {

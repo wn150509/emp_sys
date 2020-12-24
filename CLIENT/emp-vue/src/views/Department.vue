@@ -110,11 +110,15 @@ components: {
             cancelButtonText: "取消",
             type: "warning"
         }).then(() => {
+          console.log("走确定删除操作");
             remove(row.deptId).then(res => {
             that.$parent.$alert("删除成功", "提示");
             that.getData();
             });
+        }).catch(() => {
+          console.log("走取消删除操作");
         });
+            ;
     },
     // 编辑操作
     handleEdit(index, row) {
@@ -122,7 +126,7 @@ components: {
       this.form = row;
       this.editVisible = true;
     }
-    
+
   }
 };
 </script>

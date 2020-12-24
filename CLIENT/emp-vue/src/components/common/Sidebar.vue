@@ -69,31 +69,6 @@ export default {
           ])
         },
         {
-          icon: "el-icon-s-data",
-          index: "role",
-          title: "权限控制",
-          role: checkPermission([
-            "ROLE_ADD",
-            "ROLE_EDIT",
-            "ROLE_DELETE",
-            "ROLE_SELECT"
-          ]),
-          subs: [
-            {
-              icon: "el-icon-s-data",
-              index: "role",
-              title: "角色管理",
-              role: true
-            },
-            {
-              icon: "el-icon-bell",
-              index: "permission",
-              title: "权限分配",
-              role: true
-            }
-          ]
-        },
-        {
           icon: "el-icon-tickets",
           index: "department",
           title: "部门汇总",
@@ -168,6 +143,31 @@ export default {
             {
               index: "mysalery",
               title: "我的工资",
+              role: true
+            }
+          ]
+        },
+        {
+          icon: "el-icon-s-data",
+          index: "role",
+          title: "权限控制",
+          role: checkPermission([
+            "ROLE_ADD",
+            "ROLE_EDIT",
+            "ROLE_DELETE",
+            "ROLE_SELECT"
+          ]),
+          subs: [
+            {
+              icon: "el-icon-s-data",
+              index: "role",
+              title: "角色管理",
+              role: true
+            },
+            {
+              icon: "el-icon-bell",
+              index: "permission",
+              title: "权限分配",
               role: true
             }
           ]
