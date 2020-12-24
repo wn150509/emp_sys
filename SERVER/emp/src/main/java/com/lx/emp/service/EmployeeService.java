@@ -21,7 +21,7 @@ public class EmployeeService {
 
     @OperationLogDetail(detail = "修改密码",level = 2,operationUnit = OperationUnit.EMPLOYEE,operationType = OperationType.UPDATE)
     public boolean changePassword(String no,String password){
-        return employeeMapper.changePassword(no,password) > 1;
+        return employeeMapper.changePassword(no,password) > 0;
     }
 
     @OperationLogDetail(detail = "增加员工",level = 3,operationUnit = OperationUnit.EMPLOYEE,operationType = OperationType.INSERT)
