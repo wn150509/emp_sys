@@ -20,31 +20,31 @@ public class SaleryService {
     private SaleryMapper saleryMapper;
 
 
-    @OperationLogDetail(detail = "增加工资信息",level = 2,operationUnit = OperationUnit.SALERY,operationType = OperationType.INSERT)
+    @OperationLogDetail(detail = "增加工资信息",level = 2,operationUnit = OperationUnit.SALARY,operationType = OperationType.INSERT)
     public boolean save(Salery salery){
         salery.setCreatetime(new Date());
         salery.setTotal(salery.getWorkSalery().add(salery.getReward()).add(salery.getAllowance()).subtract(salery.getAbsent()).subtract(salery.getVacation()));
         return saleryMapper.insertSelective(salery) > 0;
     }
 
-    @OperationLogDetail(detail = "删除工资信息",level = 4,operationUnit = OperationUnit.SALERY,operationType = OperationType.DELETE)
+    @OperationLogDetail(detail = "删除工资信息",level = 4,operationUnit = OperationUnit.SALARY,operationType = OperationType.DELETE)
     public boolean remove(Integer id){
         return saleryMapper.deleteByPrimaryKey(id) > 0;
     }
 
-    @OperationLogDetail(detail = "修改工资信息",level = 3,operationUnit = OperationUnit.SALERY,operationType = OperationType.UPDATE)
+    @OperationLogDetail(detail = "修改工资信息",level = 3,operationUnit = OperationUnit.SALARY,operationType = OperationType.UPDATE)
     public boolean update(Salery salery){
         salery.setTotal(salery.getWorkSalery().add(salery.getReward()).add(salery.getAllowance()).subtract(salery.getAbsent()).subtract(salery.getVacation()));
         return saleryMapper.updateByPrimaryKeySelective(salery) > 0;
     }
 
-    @OperationLogDetail(detail = "根据ID查询工资信息",level = 1,operationUnit = OperationUnit.SALERY,operationType = OperationType.SELECT)
+    @OperationLogDetail(detail = "根据ID查询工资信息",level = 1,operationUnit = OperationUnit.SALARY,operationType = OperationType.SELECT)
     public Salery findById(Integer id){
         return saleryMapper.selectByPrimaryKey(id);
     }
 
 
-    @OperationLogDetail(detail = "查询工资信息列表",level = 1,operationUnit = OperationUnit.SALERY,operationType = OperationType.SELECT)
+    @OperationLogDetail(detail = "查询工资信息列表",level = 1,operationUnit = OperationUnit.SALARY,operationType = OperationType.SELECT)
     public PageInfo findAll(int page, int size, String name, String no){
         PageHelper.startPage(page,size);
         List<Salery> salerys = saleryMapper.findAll(name,no);
