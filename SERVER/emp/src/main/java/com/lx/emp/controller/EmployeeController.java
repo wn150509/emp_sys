@@ -42,6 +42,11 @@ public class EmployeeController {
         return employeeService.save(employee);
     }
 
+    @PostMapping("/checkNo")
+    public boolean checkNo(@RequestParam String empNo){
+        return employeeService.checkNo(empNo);
+    }
+
     @DeleteMapping("/remove/{id}")
     public boolean remove(@PathVariable Integer id){
         return employeeService.remove(id);

@@ -1,6 +1,5 @@
 package com.lx.emp.service;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lx.emp.annotation.OperationLogDetail;
@@ -8,6 +7,7 @@ import com.lx.emp.dao.EmployeeMapper;
 import com.lx.emp.enums.OperationType;
 import com.lx.emp.enums.OperationUnit;
 import com.lx.emp.pojo.Employee;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -25,8 +25,18 @@ public class EmployeeService {
     }
 
     @OperationLogDetail(detail = "增加员工",level = 3,operationUnit = OperationUnit.EMPLOYEE,operationType = OperationType.INSERT)
-    public boolean save(Employee employee){
-        return employeeMapper.insertSelective(employee) > 0;
+    public boolean save(Employee employee)  {
+        return employeeMapper.insertSelective(employee)>0;
+    }
+
+    @OperationLogDetail(detail = "校验编号",level = 3,operationUnit = OperationUnit.EMPLOYEE,operationType = OperationType.SELECT)
+    public boolean checkNo(String empNo)  {
+        Employee employee = employeeMapper.selectByEmpNO(empNo);
+        if (employee==null){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @OperationLogDetail(detail = "根据ID删除员工",level = 4,operationUnit = OperationUnit.EMPLOYEE,operationType = OperationType.DELETE)
