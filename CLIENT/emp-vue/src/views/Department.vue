@@ -1,12 +1,5 @@
 <template>
   <div>
-    <div class="crumbs">
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item>
-          <i class="el-icon-lx-cascades"></i> 部门汇总
-        </el-breadcrumb-item>
-      </el-breadcrumb>
-    </div>
     <div class="container">
       <div class="handle-box">
         <el-button
@@ -29,7 +22,7 @@
         <el-table-column prop="deptId" label="部门编号"></el-table-column>
         <el-table-column prop="deptName" label="部门名称"></el-table-column>
         <el-table-column prop="deptCreateTime" label="创建时间"></el-table-column>
-        <el-table-column label="操作" width="180" align="center" v-if="checkPermission(['DEPT_EDIT','DEPT_DELETE'])">
+        <el-table-column label="操作" width="180" align="center" v-if="checkPermission(['DEPT_EDIT'])">
           <template slot-scope="scope">
               <el-button
               v-if="checkPermission(['DEPT_EDIT'])"
@@ -39,14 +32,14 @@
               size="small"
               circle
             ></el-button>
-            <el-button
-            v-if="checkPermission(['DEPT_DELETE'])"
-              @click="removeHandle(scope.row)"
-              type="danger"
-              icon="el-icon-delete"
-              size="small"
-              circle
-            ></el-button>
+<!--            <el-button-->
+<!--            v-if="checkPermission(['DEPT_DELETE'])"-->
+<!--              @click="removeHandle(scope.row)"-->
+<!--              type="danger"-->
+<!--              icon="el-icon-delete"-->
+<!--              size="small"-->
+<!--              circle-->
+<!--            ></el-button>-->
           </template>
         </el-table-column>
       </el-table>
@@ -103,23 +96,23 @@ components: {
       this.getData();
     },
     // 删除操作
-    removeHandle(row) {
-        let that = this;
-        this.$confirm("此操作将删除该数据, 是否继续?", "提示", {
-            confirmButtonText: "确定",
-            cancelButtonText: "取消",
-            type: "warning"
-        }).then(() => {
-          console.log("走确定删除操作");
-            remove(row.deptId).then(res => {
-            that.$parent.$alert("删除成功", "提示");
-            that.getData();
-            });
-        }).catch(() => {
-          console.log("走取消删除操作");
-        });
-            ;
-    },
+    // removeHandle(row) {
+    //     let that = this;
+    //     this.$confirm("此操作将删除该数据, 是否继续?", "提示", {
+    //         confirmButtonText: "确定",
+    //         cancelButtonText: "取消",
+    //         type: "warning"
+    //     }).then(() => {
+    //       console.log("走确定删除操作");
+    //         remove(row.deptId).then(res => {
+    //         that.$parent.$alert("删除成功", "提示");
+    //         that.getData();
+    //         });
+    //     }).catch(() => {
+    //       console.log("走取消删除操作");
+    //     });
+    //         ;
+    // },
     // 编辑操作
     handleEdit(index, row) {
       this.idx = index;

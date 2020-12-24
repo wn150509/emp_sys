@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="crumbs">
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item>
-          <i class="el-icon-lx-cascades"></i> 员工汇总
-        </el-breadcrumb-item>
-      </el-breadcrumb>
-    </div>
+<!--    <div class="crumbs">-->
+<!--      <el-breadcrumb separator="/">-->
+<!--        <el-breadcrumb-item>-->
+<!--          <i class="el-icon-lx-cascades"></i> 员工汇总-->
+<!--        </el-breadcrumb-item>-->
+<!--      </el-breadcrumb>-->
+<!--    </div>-->
     <div class="container">
       <div class="handle-box">
         <el-button

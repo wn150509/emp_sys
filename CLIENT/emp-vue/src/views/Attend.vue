@@ -1,12 +1,6 @@
 <template>
   <div>
-    <div class="crumbs">
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item>
-          <i class="el-icon-lx-cascades"></i> 考勤管理
-        </el-breadcrumb-item>
-      </el-breadcrumb>
-    </div>
+
     <div class="container">
       <div class="handle-box">
         <el-button
@@ -145,7 +139,7 @@ export default {
       this.$set(this.query, "page", val);
       this.getData();
     }
-    
+
   }
 };
 </script>

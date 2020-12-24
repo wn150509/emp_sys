@@ -1,12 +1,5 @@
 <template>
   <div>
-    <div class="crumbs">
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item>
-          <i class="el-icon-lx-cascades"></i> 角色管理
-        </el-breadcrumb-item>
-      </el-breadcrumb>
-    </div>
     <div class="container">
       <div class="handle-box">
         <el-button
@@ -42,14 +35,14 @@
               size="small"
               circle
             ></el-button>
-            <el-button
-              v-if="checkPermission(['DEPT_DELETE'])"
-              @click="removeHandle(scope.row)"
-              type="danger"
-              icon="el-icon-delete"
-              size="small"
-              circle
-            ></el-button>
+<!--            <el-button-->
+<!--              v-if="checkPermission(['DEPT_DELETE'])"-->
+<!--              @click="removeHandle(scope.row)"-->
+<!--              type="danger"-->
+<!--              icon="el-icon-delete"-->
+<!--              size="small"-->
+<!--              circle-->
+<!--            ></el-button>-->
           </template>
         </el-table-column>
       </el-table>
