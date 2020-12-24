@@ -39,14 +39,15 @@ export default {
     return {
       collapse: false,
       fullscreen: false,
-      name: "linxin",
+      name: "",
       message: 2
     };
   },
   computed: {
     username() {
-      let username = JSON.parse(sessionStorage.getItem("user")).empName;
-      return username ? "你好, "+username : this.name;
+      let user = JSON.parse(sessionStorage.getItem('user'));
+      console.log('user====', JSON.parse(sessionStorage.getItem('user')))
+      return user!=null ? "你好, "+user.empName : this.name;
     }
   },
   methods: {

@@ -44,7 +44,6 @@ public class EmployeeController {
 
     @DeleteMapping("/remove/{id}")
     public boolean remove(@PathVariable Integer id){
-        System.out.println("id===="+id);
         return employeeService.remove(id);
     }
 
