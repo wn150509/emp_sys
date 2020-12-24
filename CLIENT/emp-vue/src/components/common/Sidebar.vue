@@ -81,6 +81,7 @@ export default {
         },
         {
           icon: "el-icon-time",
+          index: 'attend',
           title: "考勤管理",
           role: true,
           subs: [

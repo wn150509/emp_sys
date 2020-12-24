@@ -33,11 +33,6 @@ export default {
         vSidebar,
         vTags
     },
-    mounted(){
-        if(sessionStorage.getItem("user") == undefined){
-            this.$route.push("/404");
-        }
-    },
     created() {
         bus.$on('collapse-content', msg => {
             this.collapse = msg;
