@@ -90,7 +90,8 @@ import {getAll,remove} from '@/api/employee';
 import EmployeeForm from "@/components/EmployeeForm";
 import {getAll as getDeptAll} from '@/api/department';
 import { checkPermission } from "@/utils/permission";
-import axios from "axios"
+import axios from "axios";
+
 
 export default {
   name: "basetable",
@@ -149,16 +150,31 @@ export default {
         code += num;
             };
       //调用员工接口进行比对，是否重复
-      axios({
-        url: "http://localhost:9000/employee/checkNo",
-        method: "post",
-        data: {empNo:code}
-      })
+      // axios({
+      //   url: "http://127.0.0.1:9000/emp/employee/checkNo",
+      //   contentType:"application/json",
+      //   method: "post",
+      //   data: {empNo:code},
+      //   success:function (result) {
+      //     console.log(result);
+      //
+      //   }
+      // });
+        axios.post('http://127.0.0.1:9000/emp/employee/checkNo',{empNo:code}).then(res=>{
+          if (res.data==true){
+            // this.isAdd = true;
+            const _this = this.$refs.form;
+            _this.form.empPassword = "123456";
+            _this.form.empNo = code;
+            _this.form.empEmail = code+"@King.com";
+            _this.dialog = true;
+          }else{
 
-      this.isAdd = true;
-      const _this = this.$refs.form;
-      _this.form.empPassword = "000000";
-      _this.dialog = true;
+          }
+        })
+
+
+
     },
     getData() {
       getAll(this.query).then(res => {
