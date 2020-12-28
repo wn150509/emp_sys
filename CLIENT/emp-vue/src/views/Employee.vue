@@ -150,7 +150,7 @@ export default {
             };
       //调用员工接口进行比对，是否重复
       axios({
-        url: "/employee/checkNo",
+        url: "http://localhost:9000/employee/checkNo",
         method: "post",
         data: {empNo:code}
       })
