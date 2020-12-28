@@ -9,7 +9,7 @@
                 size="small"
                 v-model="form.empNo"
                 placeholder="请输入员工编号"
-                :disabled="isAdd == false"
+                disabled="disabled"
               ></el-input>
             </el-form-item>
           </el-col>
@@ -76,7 +76,7 @@
         <el-row>
           <el-col :span="11">
             <el-form-item label="员工邮箱" prop="empEmail">
-              <el-input size="small" v-model="form.empEmail" placeholder="请输入员工邮箱"></el-input>
+              <el-input size="small" v-model="form.empEmail" placeholder="请输入员工邮箱" disabled="disabled"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="11">
