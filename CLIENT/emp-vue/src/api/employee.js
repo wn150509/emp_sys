@@ -30,6 +30,7 @@ export function getAll(query) {
         method: "get",
         params: query
     })
+
 }
 
 export function getAllEmp() {

@@ -90,6 +90,8 @@ import {getAll,remove} from '@/api/employee';
 import EmployeeForm from "@/components/EmployeeForm";
 import {getAll as getDeptAll} from '@/api/department';
 import { checkPermission } from "@/utils/permission";
+import axios from "axios"
+
 export default {
   name: "basetable",
   components: {
@@ -136,7 +138,23 @@ export default {
       let temp =  JSON.parse(JSON.stringify(row));
       _this.form = temp;
     },
-    toAdd() {
+
+    //监听增加员工按钮
+    toAdd() {//监听新增员工数函数
+
+      //随机生成6位员工号
+      var code = "";
+      for(var i = 1;i <= 6;i++){
+        const num = Math.floor(Math.random()*10);
+        code += num;
+            };
+      //调用员工接口进行比对，是否重复
+      axios({
+        url: "/employee/checkNo",
+        method: "post",
+        data: {empNo:code}
+      })
+
       this.isAdd = true;
       const _this = this.$refs.form;
       _this.form.empPassword = "000000";
