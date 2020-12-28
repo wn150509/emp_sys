@@ -59,25 +59,28 @@ export default {
     },
     add() {
       let that = this;
-      add(this.form)
-        .then(data => {
-          that.$parent.$alert("添加成功", "提示");
+      add(this.form).then(data => {
+          that.$notify({
+            title: '成功',
+            message: '添加成功',
+            type: 'success'
+          });
           that.reset();
           that.$parent.getData();
-        })
-        .catch(function(error) {
+        }).catch(function(error) {
           console.log(error);
         });
     },
     update() {
       let that = this;
-      update(this.form)
-        .then(data => {
-          that.$parent.$alert("修改成功", "提示");
-          that.$parent.getData();
+      update(this.form).then(data => {
+          that.$notify({
+            title: '成功',
+            message: '修改成功',
+            type: 'success'
+          });          that.$parent.getData();
           that.reset();
-        })
-        .catch(function(error) {
+        }).catch(function(error) {
           console.log(error);
         });
     }

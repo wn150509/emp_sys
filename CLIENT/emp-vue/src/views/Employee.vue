@@ -172,9 +172,6 @@ export default {
 
           }
         })
-
-
-
     },
     getData() {
       getAll(this.query).then(res => {
