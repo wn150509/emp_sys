@@ -77,6 +77,6 @@ public interface AttendenceMapper {
      * @param no
      * @return
      */
-    @Select("select * from tb_attend where emp_no like concat('%',#{no},'%') and emp_name like concat('%',#{name},'%')")
+    @Select("select * from tb_attend where emp_no like concat('%',#{no},'%') and emp_name like concat('%',#{name},'%') order by attend_begin_time desc")
     List<Attendence> findAll(@Param("name") String name, @Param("no") String no);
 }

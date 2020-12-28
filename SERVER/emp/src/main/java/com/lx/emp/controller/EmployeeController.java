@@ -43,7 +43,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/checkNo")
-    public boolean checkNo(@RequestParam String empNo){
+    public boolean checkNo(@RequestBody String empNo){
         return employeeService.checkNo(empNo);
     }
 
